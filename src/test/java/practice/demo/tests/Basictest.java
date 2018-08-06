@@ -1,19 +1,17 @@
 package practice.demo.tests;
 
-import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
 
+import practice.demo.driver.util.BaseTest;
 import practice.demo.pages.HomePage;
-import practice.selenity.driver.util.BaseTest;
 
 public class Basictest extends BaseTest {
     @Test
-    public void test() throws IOException {
-        getDriver().get("http://store.demoqa.com");
+    public void test() {
         HomePage homepage = new HomePage(getDriver());
+        homepage.GoToUrl();
         homepage.ClickMyAccount();
-        // Assert.That();
     }
 
 }

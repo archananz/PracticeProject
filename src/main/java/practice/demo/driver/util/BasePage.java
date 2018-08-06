@@ -1,4 +1,4 @@
-package practice.selenity.driver.util;
+package practice.demo.driver.util;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -11,6 +11,7 @@ public abstract class BasePage {
         super();
         this.driver = driver;
         PageFactory.initElements(driver, this);
+       
     }
 
 }

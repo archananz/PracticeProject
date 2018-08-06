@@ -5,4 +5,4 @@
  * @author ArchanaRa
  *
  */
-package practice.selenity.driver.util;
+package practice.demo.driver.util;

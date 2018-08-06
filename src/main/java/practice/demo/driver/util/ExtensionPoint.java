@@ -1,4 +1,4 @@
-package practice.selenity.driver.util;
+package practice.demo.driver.util;
 
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
