@@ -17,14 +17,14 @@ public class HomePage extends BasePage {
     }
 
     @FindBy(id = "account")
-    WebElement MyAccountButton;
+    private WebElement myAccountButton;
 
-    public void GoToUrl()
+    public void goToUrl()
     {
     	driver.get(Property.TEST_APPLICATION_URL.get());
     }
-    public void ClickMyAccount() {
-        MyAccountButton.click();
+    public void clickMyAccount() {
+        myAccountButton.click();
     }
 
 }

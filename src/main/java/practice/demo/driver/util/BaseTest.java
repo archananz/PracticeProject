@@ -32,7 +32,7 @@ public abstract class BaseTest {
 
     private WebDriver initializeDriver() {
         Properties properties = new Properties();
-        InputStream ins = BasePage.class.getClassLoader().getResourceAsStream("Default.Properties"); // Relative path
+        InputStream ins = BasePage.class.getClassLoader().getResourceAsStream("default.properties"); // Relative path
         // FileInputStream fis = new FileInputStream("C:\\Practice Automation\\PracticeProject\\src\\main\\resources\\Default.Properties"); -- This is absolute path
         try {
             properties.load(ins);

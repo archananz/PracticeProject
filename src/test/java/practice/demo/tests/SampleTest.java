@@ -6,12 +6,14 @@ import org.junit.jupiter.api.Test;
 import practice.demo.driver.util.BaseTest;
 import practice.demo.pages.HomePage;
 
-public class Basictest extends BaseTest {
+public class SampleTest extends BaseTest {
+	
+	
     @Test
-    public void test() {
+    public void testSample() {
         HomePage homepage = new HomePage(getDriver());
-        homepage.GoToUrl();
-        homepage.ClickMyAccount();
+        homepage.goToUrl();
+        homepage.clickMyAccount();
     }
 
 }
