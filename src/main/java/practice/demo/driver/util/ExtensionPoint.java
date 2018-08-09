@@ -6,7 +6,6 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 public class ExtensionPoint implements AfterEachCallback {
 
     public ExtensionPoint() {
-        System.out.println("HI");
     }
 
     @Override
@@ -14,7 +13,6 @@ public class ExtensionPoint implements AfterEachCallback {
         extensionContext.getTestInstance()
                         .map(o -> (BaseTest) o)
                         .ifPresent(baseTest -> baseTest.quit());
-        System.out.println("Hello");
     }
 
 }

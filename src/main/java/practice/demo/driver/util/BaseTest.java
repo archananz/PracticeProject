@@ -40,11 +40,12 @@ public abstract class BaseTest {
             System.out.println(BROWSER);
 
             if (BROWSER.equals("chrome")) {
-                System.setProperty("webdriver.chrome.driver", "C:\\Demo Automation\\chromedriver.exe");
+            	String temporaryChromeDriverLocation = "C:\\Practice Automation\\PracticeProject\\src\\main\\resources\\chromedriver.exe";
+                System.setProperty("webdriver.chrome.driver", temporaryChromeDriverLocation);
                 driver = new ChromeDriver();
             }
 
-            driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+            //driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
         } catch (IOException | IllegalArgumentException e) {
 
@@ -55,6 +56,16 @@ public abstract class BaseTest {
         return driver;
 
     }
+    
+    public void wait(final int milliseconds)
+    {
+        try {
+			Thread.sleep(milliseconds);
+		} catch (InterruptedException e) {
+			System.out.println("Error having a sleep");
+		}
+    }
+
     
 
 
