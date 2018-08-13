@@ -1,22 +1,22 @@
 package practice.demo.driver.util;
 
-import static org.junit.Assert.assertEquals;
-
+import java.util.Arrays;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import practice.demo.verification.Verifier;
+
 public abstract class BasePage {
 
     private WebDriver driver;
-    
-    private String pageTitle;
+    private final Verifier[] verifiers;
 
-    public BasePage(WebDriver driver, String pageTitle) {
+    public BasePage(WebDriver driver,final Verifier... verifiers) {
         this.driver = driver;
-        this.pageTitle = pageTitle;
+        this.verifiers = verifiers;
         PageFactory.initElements(driver, this);
        
     }
@@ -30,14 +30,16 @@ public abstract class BasePage {
                 ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete"));
     }
     
-    public boolean checkPage() {  	
+    public void checkPage() {  	
     	waitForLoad(driver);
-    	boolean istitlecorrect = driver.getTitle().contains(pageTitle);
-    	System.out.println(driver.getTitle());
-    	return istitlecorrect;
-    	
-    	//assertEquals(pageTitle, driver.getTitle());
-    	//System.out.println(driver.getTitle());
+    	checkVerifiers(verifiers);
+    }
+    
+    private void checkVerifiers(final Verifier... verifiers) {
+    	if(verifiers.length == 0) {
+                return ;
+    	}
+    	Arrays.asList(verifiers).forEach((verifierItem) -> verifierItem.verify(getDriver()));
     }
 
 }

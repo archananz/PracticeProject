@@ -1,21 +1,18 @@
 package practice.demo.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import practice.demo.driver.util.BasePage;
-import practice.demo.util.Property;
+import practice.demo.verification.PageTitleVerifier;
 
 public class HomePage extends BasePage {
 	public WebDriverWait wait;
 
-    public HomePage(WebDriver driver ) {
-        super(driver, "ONLINE STORE | Toolsqa Dummy Test site");      
+    public HomePage(WebDriver driver ) {   	
+    	super(driver, new PageTitleVerifier("ONLINE STORE | Toolsqa Dummy Test site"));        	  	        
     }
 
     @FindBy(id = "account")
@@ -45,17 +42,13 @@ public class HomePage extends BasePage {
 	}
 	
 	public void enterUserName() {
-		//WebElement username = getDriver().findElement(By.id("log"));
-		//wait.until(ExpectedConditions.textToBePresentInElement(username, "dummyuser"));
 		username.sendKeys("dummyuser");
 	}
 	
 	public void enterPassword() {
-		//WebElement password = getDriver().findElement(By.id("pwd"));
 		password.sendKeys("Password1");
 	}
 	public void clickLoginButton() {
-		//wait.until(ExpectedConditions.elementToBeClickable(loginbutton));
 		loginbutton.click();
 	}
 
